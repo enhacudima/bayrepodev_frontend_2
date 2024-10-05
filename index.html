@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>%VITE_APP_TITLE%</title>
+    <meta name="description" content="This is MZ Portal for Bayport Mozambique" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="mask-icon" href="/mask-icon.svg" color="#FFFFFF" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <style>
+    [v-cloak] {
+      position: fixed;
+      margin: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.137);
+      border-radius: 50%;
+      border-top-color: rgb(0, 0, 0);
+      animation: spin 1s ease-in-out infinite;
+      -webkit-animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes spin {
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+  </style>
+  <body>
+    <div id="app" v-cloak></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
