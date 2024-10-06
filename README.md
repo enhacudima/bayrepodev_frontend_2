@@ -79,7 +79,7 @@ git branch -M main
 git push -u -f origin main
 ```
 
-### on server hosting git pull
+### On server hosting git pull
 
 ```
 git rebase origin/main

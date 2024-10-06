@@ -9,26 +9,24 @@
 </template>
 
 <script>
-import store from '@/store';
+import store from '@/stores/index'
 export default {
   data() {
-    return {};
+    return {}
   },
-  methods:{
-    back(){
+  methods: {
+    back() {
       this.$router.go(-1)
     },
-    home(){
-      this.$router.push("/");
-    }, 
+    home() {
+      this.$router.push('/')
+    },
     logout() {
       store
-        .dispatch("logoutAll")
-        .then(() => {
-        })
-        .catch(() => {
-        });
+        .dispatch('logoutAll')
+        .then(() => {})
+        .catch(() => {})
     }
-  },
-};
+  }
+}
 </script>
