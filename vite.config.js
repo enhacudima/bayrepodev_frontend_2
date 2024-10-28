@@ -5,16 +5,17 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import { VitePWA } from 'vite-plugin-pwa'
+import topLevelAwait from 'vite-plugin-top-level-await'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   console.log('vite configuration for mode', mode)
   return {
-    esbuild: {
+    /*esbuild: {
       supported: {
         'top-level-await': true //browsers can handle top-level-await features
       }
-    },
+    },*/
     define: {
       __APP_ENV__: JSON.stringify(mode)
     },
@@ -25,6 +26,12 @@ export default defineConfig(({ mode }) => {
       vue(),
       vueJsx(),
       vueDevTools(),
+      topLevelAwait({
+        // The export name of top-level await promise for each chunk module
+        promiseExportName: '__tla',
+        // The function to generate import names of top-level await promise in each chunk module
+        promiseImportName: (i) => `__tla_${i}`
+      }),
       VitePWA({
         registerType: 'autoUpdate',
         devOptions: {

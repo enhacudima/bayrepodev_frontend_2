@@ -60,9 +60,10 @@ function event(type, title = null, text, color) {
     model: true
   })
 }
+const isEmpty = (str) => !str?.length
 function statusCode(status, data) {
   if (status === 200) {
-    if (data.success) {
+    if (!isEmpty(data.success)) {
       var color
       if (data.color) {
         color = data.color

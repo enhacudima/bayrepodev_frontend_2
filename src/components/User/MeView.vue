@@ -2,7 +2,13 @@
   <a-row>
     <a-col :span="12" :offset="6">
       <div>
-        <a-modal :open="visible" width="1000px" :title="state.fulName" @ok="handleOk">
+        <a-modal
+          v-model:open="visible"
+          width="1000px"
+          :title="state.fulName"
+          @ok="handleOk"
+          :closable="false"
+        >
           <a-tabs v-model:activeKey="activeKey">
             <a-tab-pane key="1" force-render>
               <template #tab>

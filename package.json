@@ -30,6 +30,7 @@
     "register-service-worker": "^1.7.2",
     "tiny-emitter": "^2.1.0",
     "v-tables-3": "^0.4.7",
+    "vite-plugin-top-level-await": "^1.4.4",
     "vue": "^3.4.29",
     "vue-cookie-comply": "^0.0.3",
     "vue-cookie-law": "^1.13.3",

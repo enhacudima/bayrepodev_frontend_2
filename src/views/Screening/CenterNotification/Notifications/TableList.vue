@@ -205,7 +205,7 @@
     </a-tabs>
   </a-modal>
   <a-modal
-    v-model:visible="visibleAMl"
+    v-model:open="visibleAMl"
     :title="
       detailesData.id +
       ' - ' +

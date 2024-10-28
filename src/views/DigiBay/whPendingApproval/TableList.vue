@@ -326,7 +326,7 @@
     </a-tabs>
   </a-modal>
   <a-modal
-    v-model:visible="visibleAMl"
+    v-model:open="visibleAMl"
     :title="
       detailesData.Application_ID +
       ' - ' +
@@ -674,7 +674,7 @@ export default defineComponent({
         width: 150
       }
     ]
-    const token = Cookies.get('token' + process.env.VUE_APP_PORT)
+    const token = Cookies.get('token' + import.meta.env.VITE_APP_PORT)
     const headers = {
       Authorization: `Bearer ${token}`
     }

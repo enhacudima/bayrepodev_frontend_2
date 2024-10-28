@@ -44,6 +44,7 @@ if (!i18n) {
     legacy: false,
     locale: locale,
     fallbackLocale: 'pt',
+    warnHtmlInMessage: 'off',
     messages: { messages }
   })
 
