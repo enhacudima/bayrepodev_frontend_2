@@ -119,7 +119,7 @@ const router = createRouter({
       name: 'shared-files',
       component: () => import('../views/Services/ShareFiles/BoxView.vue'),
       meta: {
-        layout: 'Public'
+        layout: 'LayoutDefault'
       }
     },
     {
@@ -547,7 +547,7 @@ router.beforeEach(async (to) => {
   }
   document.title = to.meta.title || DEFAULT_TITLE
   // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = [
+  const LayoutDefaultPages = [
     '/',
     '/login-nat',
     '/forgot-password',
@@ -555,7 +555,7 @@ router.beforeEach(async (to) => {
     '/:catchAll(.*)',
     '/device-blocked'
   ]
-  const authRequired = !publicPages.includes(to.path)
+  const authRequired = !LayoutDefaultPages.includes(to.path)
   if (to.path != '/' && authRequired && (!token || !permissions)) {
     return '/'
   } else if (!canNavigate && authRequired) {
