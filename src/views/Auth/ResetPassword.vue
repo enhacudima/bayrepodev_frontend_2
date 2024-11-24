@@ -5,10 +5,7 @@
         <a-card size="small" :hoverable="true" :style="{ width: '100%', marginTop: '6%' }">
           <a-row :style="{ width: '100%', marginBottom: '3%' }">
             <a-col :span="5" :offset="9">
-              <a-image
-                :style="{ width: '100%' }"
-                :src="'/src/assets/logo/motswedi-removebg-preview.png'"
-              />
+              <a-image :style="{ width: '100%' }" :src="'/logo/motswedi-removebg-preview.png'" />
             </a-col>
           </a-row>
           <a-divider />
