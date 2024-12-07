@@ -1,5 +1,6 @@
 <script setup>
 import AppLayoutDefault from './components/layouts/LayoutDefault.vue'
+import AppLayoutMaster from './components/layouts/LayoutMaster.vue'
 import { markRaw, ref, watch, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import { notification } from 'ant-design-vue'
@@ -45,10 +46,21 @@ watch(
   () => route.meta.layout,
   async (metaLayout) => {
     try {
-      const component =
-        metaLayout &&
-        (await import(/* @vite-ignore */ `../src/components/layouts/${metaLayout}.vue`))
-      layout.value = markRaw(component?.default || AppLayoutDefault)
+      //const component =
+      // metaLayout &&
+      // (await import(/* @vite-ignore */ `../src/components/layouts/${metaLayout}.vue`))
+
+      //layout.value = markRaw(AppLayoutMaster || AppLayoutDefault)
+
+      switch (metaLayout) {
+        case 'LayoutMaster':
+          layout.value = markRaw(AppLayoutMaster)
+          break
+
+        default:
+          layout.value = markRaw(AppLayoutDefault)
+          break
+      }
     } catch (e) {
       layout.value = markRaw(AppLayoutDefault)
     }

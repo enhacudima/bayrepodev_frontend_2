@@ -1,7 +1,8 @@
 import { createI18n } from 'vue-i18n'
 import Cookies from 'js-cookie'
 import { nextTick } from 'vue'
-
+import en from './Locales/en.json'
+import pt from './Locales/pt.json'
 let i18n
 
 export const SUPPORT_LOCALES = ['en', 'pt']
@@ -21,9 +22,16 @@ export function setI18nLanguage(locale) {
 
 export async function loadLocaleMessages(locale) {
   // load locale messages with dynamic import
-  const messages = await import(
-    /* webpackChunkName: "locale-[request]" */ `./Locales/${locale}.json`
-  )
+  const messages = en
+
+  switch (locale) {
+    case 'pt':
+      messages.value = pt
+      break
+    default:
+      messages.value = en
+      break
+  }
 
   // set locale and locale message
   i18n.global.setLocaleMessage(locale, messages.default)
