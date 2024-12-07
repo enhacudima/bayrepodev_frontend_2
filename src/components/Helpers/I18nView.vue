@@ -14,7 +14,7 @@
 </template>
 <script>
 import '/node_modules/flag-icons/css/flag-icons.min.css'
-import i18n from '../../Locale/i18n'
+import i18n, { loadLocaleMessages, setI18nLanguage } from '@/Locale/i18n'
 import eventBus from '@/Helpers/event-bus'
 import { onMounted, ref } from 'vue'
 import Cookies from 'js-cookie'
@@ -23,21 +23,21 @@ import axios from 'axios'
 export default {
   components: {},
   setup() {
-    const locale = ref([])
     const localeStore = Cookies.get('locale' + import.meta.env.VITE_APP_PORT)
+    const locale = ref(localesList[localeStore])
     onMounted(() => {
-      onChangeLocale(localeStore)
       eventBus.$on('Locale-Update', (locale) => {
         onChangeLocale(locale)
       })
     })
     const onChangeLocale = (lang) => {
-      i18n.global.locale = lang
+      setI18nLanguage(lang)
+
       locale.value = localesList[lang]
-      if (localeStore !== lang)
-        axios
-          .get('v1/me/locale-refresh/' + lang)
-          .then(Cookies.set('locale' + import.meta.env.VITE_APP_PORT, lang))
+
+      axios
+        .get('v1/me/locale-refresh/' + lang)
+        .then(Cookies.set('locale' + import.meta.env.VITE_APP_PORT, lang))
     }
 
     return {
