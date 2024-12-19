@@ -30,13 +30,13 @@
                   <b>{{ $t('phone_column') }}: </b> {{ item.phone }}
                 </p>
                 <p>
-                  <b>{{ $tc('row', 2) }}: </b> {{ item.rows }}
+                  <b>{{ $t('row', 2) }}: </b> {{ item.rows }}
                 </p>
                 <p>
                   <b>{{ $t('last_update') }}:</b> {{ dataTimeFormat(item.updatedAt) }}
                 </p>
                 <p>
-                  <b>{{ $tc('column', 2) }}:</b>
+                  <b>{{ $t('column', 2) }}:</b>
                 </p>
                 <p>
                   <temple v-for="(item, key) in item.data" :key="key">
